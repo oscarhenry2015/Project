@@ -1,0 +1,10 @@
+---
+- name: Retrieve BGP configuration
+  cisco.ios.ios_command:
+    commands:
+      - "show run | sec router bgp"
+  register: bgp_config_output
+
+- name: Set BGP neighbor password score
+  set_fact:
+    bgp_neighbor_password_score: "{{ 1 if 'password' in (bgp_config_output.stdout[0] | default('')) else 0 }}"

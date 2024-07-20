@@ -1,0 +1,82 @@
+# defaults/main.yml
+---
+aaa_authentication_login:
+  list_name: "default"
+  group: "group"
+  method1: "myradiusgroup"
+  method2: "local"
+
+aaa_authentication_enable:
+  list_name: "default"
+  method1: "enable"
+  group: "group"
+  method2: "myradiusgroup"
+
+line_types:
+    - console 0 
+    - vty 0 15
+
+aaa_accounting_config:
+  list_name: "default"  # or your specific list name
+  method: "start-stop"  # or "stop-only", "none"
+  server_type: "group"
+  tacacs_server_group_name: "mytacacsguigroup"
+  accounting_types:
+    - commands 15
+    - connection
+    - exec
+    - network
+    - system
+
+vty_acl_config:
+  vty_acl_number: 150 #Use Extended ACL Number
+  vty_acl_block_with_mask: 192.168.122.0 0.0.0.255
+  vty_acl_host: 192.168.122.254
+  # Add more allowed users as needed
+
+timeout_config:
+  timeout_in_minutes: 9
+  timeout_in_seconds: 0
+  lines:
+    - line aux 0
+    - line console 0
+    - line vty 0 4
+    - line vty 5 15
+
+snmp_hosts:
+  - ip_address: "192.168.1.1"
+  - ip_address: "192.168.1.2"
+  - ip_address: "192.168.1.3"
+
+community_string: "your_community_string"
+    
+snmp_acl_number: "59"
+
+snmpv3_group_name: "v3group"
+
+
+ios_devices:
+  R3:
+    hostname: R3
+  R2:
+    hostname: R2
+
+
+domain_name: gnb.com
+
+ssh_timeout: 60
+
+ssh_auth_retries: 3
+
+syslog_servers:
+  - 192.168.1.100
+  - 192.168.1.101
+
+loopback_interface_number: 1
+loopback_ip_address: 192.168.10.245 # Check this network
+loopback_subnet_mask: 255.255.255.0
+
+
+ntp_servers:
+  - 192.168.1.10
+  - 192.168.1.11

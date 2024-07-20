@@ -1,0 +1,25 @@
+---
+enable_secret: class
+community_string: your_community_string
+
+ospf_interfaces:
+  - name: "GigabitEthernet1/0"
+  - name: "GigabitEthernet2/0"
+
+
+eigrp_interfaces:
+  - "GigabitEthernet1/0"
+  - "GigabitEthernet2/0"
+
+access_list_name: EXTERNAL_ACL
+external_interface: "GigabitEthernet3/0"
+
+key_chain_name: EIGRP_KEY_CHAIN
+key_number: 1
+key_string: 7
+eigrp_as_number: 100
+authentication_key_chain_name: EIGRP_KEY_CHAIN
+
+ripv2_key_chain_name: RIPv2_KEY_CHAINA
+
+bgp_neighbor_password: neighbor_password
