@@ -9,7 +9,7 @@
     lines:
       - no ip proxy-arp
     parents: "interface {{ item }}"
-  loop: "{{ interfaces }}"
+  loop: "{{ all_interfaces }}"
 
 #- name: 3.1.3 Set 'no interface tunnel'
 #  cisco.ios.ios_config:
@@ -22,5 +22,5 @@
     lines:
       - "ip verify unicast source reachable-via rx"
     parents: "interface {{ item }}"
-  loop: "{{ interfaces }}"
+  loop: "{{ all_interfaces }}"
 

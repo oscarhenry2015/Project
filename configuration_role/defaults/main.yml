@@ -60,7 +60,12 @@ ios_devices:
     hostname: R3
   R2:
     hostname: R2
-
+  R1:
+    hostname: R1
+  R4:
+    hostname: R4
+  R5:
+    hostname: R5
 
 domain_name: gnb.com
 

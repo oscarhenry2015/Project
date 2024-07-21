@@ -1,0 +1,24 @@
+---
+loopback_interface_number: 1
+loopback_ip_address: 5.5.5.5
+loopback_subnet_mask: 255.255.255.0
+
+all_interfaces:
+    - GigabitEthernet 3/0
+
+eigrp_interfaces:
+  - name: GigabitEthernet 3/0
+
+ospf_interfaces:
+  - name: GigabitEthernet 3/0
+
+ripv2_interfaces:
+  - name: GigabitEthernet 3/0 
+
+bgp_neighbors:
+  - neighbor_ip: "25.25.25.2"
+    peer_group_name: "your-peer-group-name"
+    password: "neighbor_password"
+    bgp_as_number: "65005"
+    remote_as_number: "65002"
+

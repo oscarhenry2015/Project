@@ -1,0 +1,21 @@
+---
+loopback_interface_number: 1
+loopback_ip_address: 1.1.1.1
+loopback_subnet_mask: 255.255.255.0
+
+all_interfaces:
+    - Gigabitethernet 1/0
+    - GigabitEthernet 2/0
+
+eigrp_interfaces:
+  - name: GigabitEthernet 1/0
+  - name: GigabitEthernet 2/0
+
+ospf_interfaces:
+  - name: GigabitEthernet 1/0
+  - name: GigabitEthernet 2/0
+
+ripv2_interfaces:
+  - name: GigabitEthernet1/0
+  - name: GigabitEthernet2/0
+

@@ -77,35 +77,26 @@ internal_networks:
   - 192.168.2.0 0.0.0.255
   - 192.168.23.0 0.0.0.255
 
+external_interface: GigabitEthernet 3/0
+
+border_router_acl_name: border_router_acl_1
+
+external_networks: 
 eigrp_instance: "EIGRP_INSTANCE"
 eigrp_vrf_name: EIGRP_VRF_NAME
 eigrp_as_number: 100
-eigrp_interfaces:
-  - name: "GigabitEthernet1/0"
-  - name: "GigabitEthernet2/0"
-
 eigrp_key_number: 1
 eigrp_key_string: "MySecretKeyString"
 eigrp_key_chain_name: "EIGRP_KEY_CHAIN"
 
 
-
 ospf_process_id: 1
 ospf_area_id: 0
-
-ospf_interfaces:
-  - name: "GigabitEthernet1/0"
-  - name: "GigabitEthernet2/0"
-
 ospf_md5_key_id: 1
 ospf_md5_key: my_secret_key
-
 
 
 ripv2_key_chain_name: "RIPv2_KEY_CHAINA"
 ripv2_key_number: 1
 
-ripv2_interfaces:
-  - name: "GigabitEthernet1/0"
-  - name: "GigabitEthernet2/0"
 

@@ -3,7 +3,7 @@
   cisco.ios.ios_config:
     lines:
       - "deny ip {{ item }} any log"
-    parents: "ip access-list extended {{ acl_name }}"
+    parents: "ip access-list extended {{ border_router_acl_name }}"
   loop: "{{ internal_networks }}"
 
 - name: Define other ACL rules
@@ -20,7 +20,7 @@
       - "permit tcp 0.0.0.0 0.0.0.0 0.0.0.0 0.0.0.0 log"
       - "permit ip 192.168.122.0 0.0.0.255 any log"
       - "deny ip any any log"
-    parents: "ip access-list extended {{ acl_name }}"
+    parents: "ip access-list extended {{ border_router_acl_name }}"
 
 #- name: 3.2.1 Set 'ip access-list extended' to Forbid Private Source Addresses from External Networks
 #  cisco.ios.ios_config:
@@ -31,6 +31,6 @@
 - name: 3.2.2 Set inbound 'ip access-group' on the External Interface
   cisco.ios.ios_config:
     lines:
-      - "ip access-group {{ acl_name }} in"
+      - "ip access-group {{ border_router_acl_name }} in"
     parents: "interface {{ external_interface }}"
 

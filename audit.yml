@@ -1,61 +1,61 @@
 ---
-- name: Get running configuration from Cisco switches
-  hosts: all_cisco_devices
+- name: Running CIS BENCHMARK AUDIT FOR CISCO IOS 15
+  hosts: all_routers
   gather_facts: yes
   become: yes
   become_method: enable
 
   roles:
-    - role: /root/project/audit_role
+    - role: /root/Project/audit_role
 
   vars:
     ansible_become_pass: "{{enable_secret}}"
 
   tasks:
     - name: Audit AAA Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/aaa_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/aaa_audit.yml
 
     - name: Audit Access Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/access_rules_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/access_rules_audit.yml
 
     - name: Audit Banner Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/banner_rules_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/banner_rules_audit.yml
 
     - name: Audit Password Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/password_rules_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/password_rules_audit.yml
 
     - name: Audit SNMP Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/snmp_rules_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/snmp_rules_audit.yml
 
     - name: Audit SSH Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/ssh_prerequisite_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/ssh_prerequisite_audit.yml
 
     - name: Audit Logging Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/logging_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/logging_audit.yml
 
     - name: Audit NTP Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/ntp_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/ntp_audit.yml
 
     - name: Audit Loopback Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/loopback_audit.yml
+      include_tasks: /root/Project/audit_role/tasks/loopback_audit.yml
 
     - name: Routing Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/routing_rules_audit_playbook.yml
+      include_tasks: /root/Project/audit_role/tasks/routing_rules_audit_playbook.yml
 
     - name: Audit Border Router Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/border_router_rules_audit_playbook.yml
+      include_tasks: /root/Project/audit_role/tasks/border_router_rules_audit_playbook.yml
 
     - name: Audit EIGRP Authentication Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/eigrp_authentication_playbook.yml
+      include_tasks: /root/Project/audit_role/tasks/eigrp_authentication_playbook.yml
 
     - name: Audit OSPF Authentication Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/ospf_authentication_playbook.yml
+      include_tasks: /root/Project/audit_role/tasks/ospf_authentication_playbook.yml
 
     - name: Audit RIP Authentication Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/rip_authentication_playbook.yml
+      include_tasks: /root/Project/audit_role/tasks/rip_authentication_playbook.yml
 
     - name: Audit BGP Authentication Rules Configurations
-      include_tasks: /root/project/audit_role/tasks/bgp_audit_playbook.yml
+      include_tasks: /root/Project/audit_role/tasks/bgp_audit_playbook.yml
 
     - name: Get current date
       command: date +%Y-%m-%d
@@ -72,7 +72,7 @@
 
     - name: Create a file and write content
       copy:
-        dest: /root/project/audit_role/{{ inventory_hostname }}.txt
+        dest: /root/Project/audit_role/{{ inventory_hostname }}.txt
         content: |
           CIS Benchmark 4.1.1 Audit Report for {{inventory_hostname}} 
           Audit file was created on: {{ report_date }} at {{ report_time}}.
